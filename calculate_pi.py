@@ -109,6 +109,7 @@ def Main():
             myPI = EstimatePi(totalPoints)
 
             if myPI == -1:
+                print("Error (%d):\tInvalid Input!" % INVALID_INPUT)
                 return INVALID_INPUT
 
             print("PI is approximately: ", myPI)
@@ -119,6 +120,7 @@ def Main():
             print("Error (%d):\tInvalid Input!" % MENU_OPTION_DOES_NOT_EXIST)
             return MENU_OPTION_DOES_NOT_EXIST
 
+    print("Bye!")
     return OK
 
 
