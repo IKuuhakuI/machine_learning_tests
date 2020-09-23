@@ -1,38 +1,39 @@
 import matplotlib.pyplot as pyplot
-import numpy as np
-'''
-radius = 1
+import random
 
-side = 2
+# Calculates PI
 
-n = 64
+totalPoints = int(input("Points: "))
+insideCircle = 0
 
-t = np.linspace(0, 2*np.pi, n+1)
+xValuesInside = []
+yValuesInside = []
 
-x_circle = radius * np.cos(t)
-y_circle = radius * np.sin(t)
+xValuesOutside = []
+yValuesOutside =[]
 
-pyplot.axis("equal")
+for count in range(totalPoints):
+    xValue = random.uniform(0, 1)
+    yValue = random.uniform(0, 1)
 
-pyplot.grid()
-pyplot.plot(x_circle, y_circle)
+    distance = xValue ** 2 + yValue ** 2
+    if distance <= 1:
+        insideCircle += 1
 
-x_square = side
-y_square = side
-'''
+myPI = 4 * (insideCircle / totalPoints)
 
-circle = pyplot.Circle((0, 0), radius=1, facecolor="white", edgecolor="black")
-rectangle = pyplot.Rectangle((-1, -1), width=2, height=2, facecolor="white", edgecolor="black")
+print(myPI)
 
-ax = pyplot.gca()
-bx = pyplot.gca()
+# Plots solution
 
-bx.add_patch(rectangle)
-ax.add_patch(circle)
+circle = pyplot.Circle((0, 0), radius=1, facecolor="white", edgecolor="red")
+rectangle = pyplot.Rectangle((-1, -1), width=2, height=2, facecolor="white", edgecolor="blue")
+
+drawFig = pyplot.gca()
+
+drawFig.add_patch(rectangle)
+drawFig.add_patch(circle)
 
 pyplot.axis("scaled")
 
 pyplot.show()
-
-
-
